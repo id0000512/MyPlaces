@@ -41,13 +41,13 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        cell.thumbnailImage.image = UIImage(named: restImage[indexPath.row])
-        cell.thumbnailImage.layer.cornerRadius = cell.thumbnailImage.frame.size.height / 2
-        cell.thumbnailImage.clipsToBounds = true
+        cell.imageOfPlace.image = UIImage(named: restImage[indexPath.row])
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
         
         cell.nameLabel.text = restName[indexPath.row]
-        cell.typeLabel.text = restType[indexPath.row]
         cell.locationLabel.text = restLocation[indexPath.row]
+        cell.typeLabel.text = restType[indexPath.row]
 
 
         
