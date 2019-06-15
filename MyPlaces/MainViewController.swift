@@ -42,7 +42,7 @@ class MainViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
         cell.thumbnailImage.image = UIImage(named: restImage[indexPath.row])
-        cell.thumbnailImage.layer.cornerRadius = 35
+        cell.thumbnailImage.layer.cornerRadius = cell.thumbnailImage.frame.size.height / 2
         cell.thumbnailImage.clipsToBounds = true
         
         cell.nameLabel.text = restName[indexPath.row]
@@ -52,6 +52,10 @@ class MainViewController: UITableViewController {
 
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
     }
     
 
