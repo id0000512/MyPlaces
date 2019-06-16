@@ -9,21 +9,9 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-    
-    let restName = ["Velvet", "Restol", "Матрешка", "Moscow", "GrandMa",
-                    "KFC", "Tokio", "Alpenhov", "Sushi-brothers", "Иртыш",
-                    "Village", "Burger-king", "Diplomat", "Izmir", "Шашлычная №1"]
-    let restImage = ["f001.jpg", "f002.jpg", "f003.jpg", "f004.jpg", "f005.jpg",
-                     "f006.jpg", "f007.jpg", "f008.jpg", "f009.jpg", "f010.jpg",
-                     "f011.jpg", "f012.jpg", "f013.jpg", "f014.jpg", "f015.jpg"]
-    
-    let restType = ["Ресторан", "Караоке", "Фаст фуд", "Суши бар", "Клуб",
-                    "Ресторан", "Караоке", "Фаст фуд", "Суши бар", "Клуб",
-                    "Ресторан", "Караоке", "Фаст фуд", "Суши бар", "Клуб"]
-    
-    let restLocation = ["Кутузова 22", "Лермонтова 6", "Камзина 163", "Ворушина 19", "Торайгырова 75",
-                        "Елгина 1", "Каирбаева 34", "Димитрова 88", "Сатпаева 42", "Чкалова 11",
-                        "Гагарина 78", "Московская 55", "Назарбаева 219", "1 Мая 284", "Урицкого 76"]
+    /*
+    */
+    let places = Place.getPlaces()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,29 +23,29 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restName.count
+        return places.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        cell.imageOfPlace.image = UIImage(named: restImage[indexPath.row])
+        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
         
-        cell.nameLabel.text = restName[indexPath.row]
-        cell.locationLabel.text = restLocation[indexPath.row]
-        cell.typeLabel.text = restType[indexPath.row]
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
 
 
         
         return cell
     }
-    
+    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
-    
+    */
 
  
     /*
