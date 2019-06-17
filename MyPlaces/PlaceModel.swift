@@ -6,13 +6,14 @@
 //  Copyright © 2019 Valeriy Pokatilo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Place {
     var name: String
-    var location: String
-    var type: String
-    var image: String
+    var location: String?
+    var type: String?
+    var image: UIImage?
+    var restaurantImage: String?
     
    static let restName = ["Velvet", "Restol", "Матрешка", "Moscow", "GrandMa",
                     "KFC", "Tokio", "Alpenhov", "Sushi-brothers", "Иртыш",
@@ -36,7 +37,8 @@ struct Place {
             places.append(Place(name: restName[index],
                                 location: restLocation[index],
                                 type: restType[index],
-                                image: restImage[index]))
+                                image: nil,
+                                restaurantImage: restImage[index]))
         }
         
         
